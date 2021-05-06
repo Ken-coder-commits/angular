@@ -13,15 +13,16 @@ export class ToDosComponent implements OnInit {
   constructor(private toDoService:ToDoService) { }
 
   ngOnInit(): void {
-    this.toDoService.limitTodosNum(10).subscribe( todos => {
+    this.toDoService.limitGetTodosNum(10).subscribe( todos => {
       this.todos = todos;
       console.log('todos', todos);
+      console.log(todos[0])
     });
   }
 
   deleteTodo(todo:Todo){
     //delete this.todos[todo.id-1];
-    this.todos = this.todos.slice(0,todo.id-1).concat(this.todos.slice(todo.id));
+    this.todos = this.todos.filter(t => t.id !== todo.id);
     console.log(this.todos);
     //console.log(this.todos.filter(t => t.id !== todo.id));
   }

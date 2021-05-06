@@ -22,7 +22,7 @@ export class ToDoService {
     return this.HttpClient.get<Todo[]>(this.toDosUrl);
   }
 
-  limitTodosNum(number:number):Observable<Todo[]>{
+  limitGetTodosNum(number:number):Observable<Todo[]>{
     let LimitUrl:string = '?_limit='+number
     //this.toDosUrl += LimitUrl;
     console.log(LimitUrl,this.toDosUrl);
