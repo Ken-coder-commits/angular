@@ -13,6 +13,7 @@ export class ToDosComponent implements OnInit {
   constructor(private toDoService:ToDoService) { }
 
   ngOnInit(): void {
+    //this.todos = [];
     this.toDoService.limitGetTodosNum(10).subscribe( todos => {
       this.todos = todos;
       console.log('todos', todos);
@@ -23,7 +24,15 @@ export class ToDosComponent implements OnInit {
   deleteTodo(todo:Todo){
     //delete this.todos[todo.id-1];
     this.todos = this.todos.filter(t => t.id !== todo.id);
-    console.log(this.todos);
+    this.toDoService.deleteTodo(todo).subscribe(result => console.log('deleting this item...',todo));
+    
     //console.log(this.todos.filter(t => t.id !== todo.id));
+  }
+
+  addTodo(todo:Todo){
+    //this.todos.push(todo);
+    this.toDoService.addTodo(todo).subscribe(
+      todo => {this.todos.push(todo);}
+    );
   }
 }

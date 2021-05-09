@@ -10,6 +10,8 @@ import { ToDoItemComponent } from './components/to-do-item/to-do-item.component'
 import { HttpClientModule } from '@angular/common/http';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HeaderComponent } from './components/layout/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './page/about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { HeaderComponent } from './components/layout/header/header.component';
     ToDosComponent,
     ToDoItemComponent,
     AddTodoComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

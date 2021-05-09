@@ -29,8 +29,19 @@ export class ToDoService {
     return this.HttpClient.get<Todo[]>(this.toDosUrl+LimitUrl);
   }
 
-  toggleCompleted(todo: Todo):Observable<any>{
+  deleteTodo(todo:Todo):Observable<Todo[]>{
     const url = this.toDosUrl+'/'+todo.id;
-    return this.HttpClient.put(url,todo,httpOptions);
+    return this.HttpClient.delete<Todo[]>(url,httpOptions);
+  }
+
+  toggleCompleted(todo: Todo):Observable<Todo[]>{
+    const url = this.toDosUrl+'/'+todo.id;
+    return this.HttpClient.put<Todo[]>(url,todo,httpOptions);
+  }
+
+  addTodo(todo: Todo):Observable<Todo>{
+    //const url = this.toDosUrl+'/'+todo.id;
+    console.log('todo id:',todo.id);
+    return this.HttpClient.post<Todo>(this.toDosUrl,todo,httpOptions);
   }
 }
