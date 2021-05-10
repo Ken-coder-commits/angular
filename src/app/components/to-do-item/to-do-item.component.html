@@ -1,7 +1,6 @@
 <div [ngClass]='setClasses()'>
-    <p>
-        <input (change)='onToggle(todo)' type="checkbox" name="" id="">
-        {{todo.title}}
-        <button (click)="onDelete(todo)" class="del">x</button>
-    </p>
+    <input (change)='onToggle(todo)' type="checkbox" name="" id="">
+        <p class="todoTitle">{{todo.title}}</p> 
+    <!-- <p class="todoTitle">{{ (todo.title.length > 30)? (todo.title | slice:0:30)+'...':(todo.title) }} </p> -->
+<button (click)="onDelete(todo)" class="del">x</button>
 </div>
