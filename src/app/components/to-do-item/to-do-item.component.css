@@ -19,7 +19,7 @@ input[type='checkbox']{
   border-bottom: 1px #ccc dotted;
 }
 
-.is-complete {
+.is-complete p{
   text-decoration: line-through;
 }
 
